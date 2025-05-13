@@ -5,8 +5,8 @@ import { CORE_CONCEPTS } from './data.js';
 
 function App() {
 
-    function handleSelect() {
-        console.log("Hello World -- Selected")
+    function handleSelect(selectedButton) {
+        console.log(selectedButton)
     }
 
     return (
@@ -31,10 +31,12 @@ function App() {
                     <menu>
                         {/* This approch is called children prop */}
                         {/* Both children & attribute props approch is good */}
-                        <TabButton onSelect={handleSelect}> Components </TabButton>
-                        <TabButton onSelect={handleSelect}> JSX </TabButton>
-                        <TabButton onSelect={handleSelect}> Props </TabButton>
-                        <TabButton onSelect={handleSelect}> State </TabButton>
+
+                        {/* In case of arrow function, you can use the parenthasis as it will now not excecute on rendering */}
+                        <TabButton onSelect={() => handleSelect('Components')}> Components </TabButton>
+                        <TabButton onSelect={() => handleSelect('JSX')}> JSX </TabButton>
+                        <TabButton onSelect={() => handleSelect('Props')}> Props </TabButton>
+                        <TabButton onSelect={() => handleSelect('State')}> State </TabButton>
                     </menu>
                 </section>
             </main>
