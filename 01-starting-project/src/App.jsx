@@ -6,13 +6,24 @@ import { CORE_CONCEPTS, EXAMPLES } from './data.js';
 
 function App() {
 
-    const [selectedTopic, setSelectedTopic] = useState('components')
+    const [selectedTopic, setSelectedTopic] = useState()
 
     function handleSelect(selectedButton) {
         setSelectedTopic(selectedButton)
         // console.log(selectedTopic)
     }
 
+    var tapContent = <p>Please select a topic!!!!</p>;
+
+    if (selectedTopic) {
+        tapContent = <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+            </pre>
+        </div>;
+    }
     return (
         <div>
             <Header />
@@ -42,13 +53,46 @@ function App() {
                         <TabButton onSelect={() => handleSelect('props')}> Props </TabButton>
                         <TabButton onSelect={() => handleSelect('state')}> State </TabButton>
                     </menu>
-                    <div id="tab-content">
-                        <h3>{EXAMPLES[selectedTopic].title}</h3>
-                        <p>{EXAMPLES[selectedTopic].description}</p>
-                        <pre>
-                            <code>{EXAMPLES[selectedTopic].code}</code>
-                        </pre>
-                    </div>
+
+                    {/* WAY 1 */}
+                    {/* {!selectedTopic
+                        ? <p>Please select a topic!!!!</p>
+                        : (<div id="tab-content">
+                            <h3>{EXAMPLES[selectedTopic].title}</h3>
+                            <p>{EXAMPLES[selectedTopic].description}</p>
+                            <pre>
+                                <code>{EXAMPLES[selectedTopic].code}</code>
+                            </pre>
+                        </div>)
+                    } */}
+
+                    {/* WAY 2 */}
+                    {/* {!selectedTopic ? <p>Please select a topic!!!!</p> : null}
+                     {selectedTopic &&
+                        <div id="tab-content">
+                            <h3>{EXAMPLES[selectedTopic].title}</h3>
+                            <p>{EXAMPLES[selectedTopic].description}</p>
+                            <pre>
+                                <code>{EXAMPLES[selectedTopic].code}</code>
+                            </pre>
+                        </div>
+                    } */}
+
+                    {/* WAY 3 */}
+                    {/* {!selectedTopic && <p>Please select a topic!!!!</p>}
+                    {selectedTopic
+                        ? <div id="tab-content">
+                            <h3>{EXAMPLES[selectedTopic].title}</h3>
+                            <p>{EXAMPLES[selectedTopic].description}</p>
+                            <pre>
+                                <code>{EXAMPLES[selectedTopic].code}</code>
+                            </pre>
+                        </div>
+                        : null} */}
+
+                    {/* WAY 4 : Used in function defined var*/}
+                    {tapContent}
+
                 </section>
             </main>
         </div>
