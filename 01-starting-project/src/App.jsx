@@ -48,10 +48,10 @@ function App() {
                         {/* Both children & attribute props approch is good */}
 
                         {/* In case of arrow function, you can use the parenthasis as it will now not excecute on rendering */}
-                        <TabButton onSelect={() => handleSelect('components')}> Components </TabButton>
-                        <TabButton onSelect={() => handleSelect('jsx')}> JSX </TabButton>
-                        <TabButton onSelect={() => handleSelect('props')}> Props </TabButton>
-                        <TabButton onSelect={() => handleSelect('state')}> State </TabButton>
+                        <TabButton isSelected={selectedTopic == 'components'} onSelect={() => handleSelect('components')}> Components </TabButton>
+                        <TabButton isSelected={selectedTopic == 'jsx'} onSelect={() => handleSelect('jsx')}> JSX </TabButton>
+                        <TabButton isSelected={selectedTopic == 'props'} onSelect={() => handleSelect('props')}> Props </TabButton>
+                        <TabButton isSelected={selectedTopic == 'state'} onSelect={() => handleSelect('state')}> State </TabButton>
                     </menu>
 
                     {/* WAY 1 */}
