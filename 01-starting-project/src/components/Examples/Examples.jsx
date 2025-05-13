@@ -28,7 +28,8 @@ export default function Examples() {
         <Section title='Example' id="examples">
 
             <Tabs
-                ButtonsContainer="menu" //Custom components should be passed the identifier of that components. For example Section component's identifier is Section name of the default function
+                // Added default value to it in Tabs component
+                // ButtonsContainer="menu" //Custom components should be passed the identifier of that components. For example Section component's identifier is Section name of the default function
                 buttons={
                     <>
                         {/* This approch is called children prop */}
