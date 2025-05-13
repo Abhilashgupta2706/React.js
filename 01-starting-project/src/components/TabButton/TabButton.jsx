@@ -1,12 +1,9 @@
-export default function TabButton(props) { // Object destructuring is also a way
-    function handleClick() {
-        console.log("Hellow World")
-    }
+export default function TabButton({ children, onSelect }) { // Props is also a way, Only children prop name is fixed rest can can be as per the need
 
     return (
         <li>
             {/* Adding paranthesis on function name will make it execute on element render =>handleClick() */}
-            <button onClick={handleClick}>{props.children}</button>
+            <button onClick={onSelect}>{children}</button>
         </li>
     );
 }
