@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import CoreConcept from './components/CoreConcept/CoreConcept.jsx';
 import Header from './components/Header/Header.jsx';
 import TabButton from './components/TabButton/TabButton.jsx';
@@ -25,7 +25,9 @@ function App() {
         </div>;
     }
     return (
-        <div>
+        // Use "Fragment" to wrap the child components to avoid unnecesary HTML elements in browser 
+        // Also another way is to directly wrap inside "<> </>" without any name 
+        <Fragment>
             <Header />
             <main>
                 <section id="core-concepts">
@@ -99,7 +101,7 @@ function App() {
 
                 </section>
             </main>
-        </div>
+        </Fragment>
     );
 }
 
