@@ -1,5 +1,5 @@
 import imgUsed from '../src/assets/react-core-concepts.png';
-import componentsImg from '../src/assets/components.png';
+import { CORE_CONCEPTS } from './data.js';
 
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 
@@ -20,7 +20,8 @@ function Header() {
     );
 }
 
-function CoreConcept(props) {
+
+function CoreConcept(props) { // Can use object destructuring 
     return (
         <li>
             <img src={props.image} alt={props.title} />
@@ -39,10 +40,11 @@ function App() {
                     <h2>Core Concepts</h2>
 
                     <ul>
-                        <CoreConcept title="Components1" description='Something to describe' image={componentsImg} />
-                        <CoreConcept title="Components2" description='Something to describe' image={componentsImg} />
-                        <CoreConcept title="Components3" description='Something to describe' image={componentsImg} />
-                        <CoreConcept title="Components4" description='Something to describe' image={componentsImg} />
+                        <CoreConcept title={CORE_CONCEPTS[0].title} description={CORE_CONCEPTS[0].description} image={CORE_CONCEPTS[0].image} />
+                        <CoreConcept title={CORE_CONCEPTS[1].title} description={CORE_CONCEPTS[1].description} image={CORE_CONCEPTS[1].image} />
+                        {/* Short and easy way */}
+                        <CoreConcept {...CORE_CONCEPTS[2]} />
+                        <CoreConcept {...CORE_CONCEPTS[3]} />
                     </ul>
 
                 </section>
