@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import TabButton from '../../components/TabButton/TabButton.jsx';
+import Tabs from '../../components/Tabs/Tabs.jsx';
 import { EXAMPLES } from '../../data.js';
 import Section from '../Section/Section.jsx';
 
@@ -25,16 +26,21 @@ export default function Examples() {
 
     return (
         <Section title='Example' id="examples">
-            <menu>
-                {/* This approch is called children prop */}
-                {/* Both children & attribute props approch is good */}
 
-                {/* In case of arrow function, you can use the parenthasis as it will now not excecute on rendering */}
-                <TabButton isSelected={selectedTopic == 'components'} onClick={() => handleSelect('components')}> Components </TabButton>
-                <TabButton isSelected={selectedTopic == 'jsx'} onClick={() => handleSelect('jsx')}> JSX </TabButton>
-                <TabButton isSelected={selectedTopic == 'props'} onClick={() => handleSelect('props')}> Props </TabButton>
-                <TabButton isSelected={selectedTopic == 'state'} onClick={() => handleSelect('state')}> State </TabButton>
-            </menu>
+            <Tabs buttons={
+                <>
+                    {/* This approch is called children prop */}
+                    {/* Both children & attribute props approch is good */}
+
+                    {/* In case of arrow function, you can use the parenthasis as it will now not excecute on rendering */}
+                    <TabButton isSelected={selectedTopic == 'components'} onClick={() => handleSelect('components')}> Components </TabButton>
+                    <TabButton isSelected={selectedTopic == 'jsx'} onClick={() => handleSelect('jsx')}> JSX </TabButton>
+                    <TabButton isSelected={selectedTopic == 'props'} onClick={() => handleSelect('props')}> Props </TabButton>
+                    <TabButton isSelected={selectedTopic == 'state'} onClick={() => handleSelect('state')}> State </TabButton>
+                </>
+            }>
+                {tapContent}
+            </Tabs>
 
             {/* WAY 1 */}
             {/* {!selectedTopic
@@ -73,7 +79,7 @@ export default function Examples() {
                         : null} */}
 
             {/* WAY 4 : Used in function defined var*/}
-            {tapContent}
+            {/* Moved to Tabs.jsx */}
 
         </Section>
     );
