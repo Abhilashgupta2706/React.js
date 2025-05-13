@@ -27,18 +27,20 @@ export default function Examples() {
     return (
         <Section title='Example' id="examples">
 
-            <Tabs buttons={
-                <>
-                    {/* This approch is called children prop */}
-                    {/* Both children & attribute props approch is good */}
+            <Tabs
+                ButtonsContainer="menu" //Custom components should be passed the identifier of that components. For example Section component's identifier is Section name of the default function
+                buttons={
+                    <>
+                        {/* This approch is called children prop */}
+                        {/* Both children & attribute props approch is good */}
 
-                    {/* In case of arrow function, you can use the parenthasis as it will now not excecute on rendering */}
-                    <TabButton isSelected={selectedTopic == 'components'} onClick={() => handleSelect('components')}> Components </TabButton>
-                    <TabButton isSelected={selectedTopic == 'jsx'} onClick={() => handleSelect('jsx')}> JSX </TabButton>
-                    <TabButton isSelected={selectedTopic == 'props'} onClick={() => handleSelect('props')}> Props </TabButton>
-                    <TabButton isSelected={selectedTopic == 'state'} onClick={() => handleSelect('state')}> State </TabButton>
-                </>
-            }>
+                        {/* In case of arrow function, you can use the parenthasis as it will now not excecute on rendering */}
+                        <TabButton isSelected={selectedTopic == 'components'} onClick={() => handleSelect('components')}> Components </TabButton>
+                        <TabButton isSelected={selectedTopic == 'jsx'} onClick={() => handleSelect('jsx')}> JSX </TabButton>
+                        <TabButton isSelected={selectedTopic == 'props'} onClick={() => handleSelect('props')}> Props </TabButton>
+                        <TabButton isSelected={selectedTopic == 'state'} onClick={() => handleSelect('state')}> State </TabButton>
+                    </>
+                }>
                 {tapContent}
             </Tabs>
 
